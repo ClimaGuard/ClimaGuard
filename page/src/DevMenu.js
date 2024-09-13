@@ -20,8 +20,7 @@ const DevMenu = () => {
       {/* Menu with "Start season" and "End season" buttons */}
       {isMenuVisible && (
         <div className="dev-dropdown-menu">
-          <button className="menu-button">Start season</button>
-          <button className="menu-button">End season</button>
+          <button className="menu-button">Next Season</button>
         </div>
       )}
     </div>
