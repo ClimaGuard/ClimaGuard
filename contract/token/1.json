@@ -1,0 +1,16 @@
+{
+    "name": "Summer Token",
+    "description": "ClimaGuard Summer Hedge",
+    "image": "https://raw.githubusercontent.com/ClimaGuard/ClimaGuard/main/page/src/cards/cold-wet.jpeg",
+    "attributes": [
+      {
+        "trait_type": "Precipitation",
+        "value": "10%"
+      },
+      {
+        "trait_type": "Temperature",
+        "value": "-10%"
+      }
+    ]
+  }
+  
