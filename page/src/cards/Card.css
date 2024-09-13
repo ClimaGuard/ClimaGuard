@@ -1,0 +1,54 @@
+/* Card.css */
+.card {
+    position: relative; /* Required for the overlay to position correctly */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    height: 256px;
+    border: 2px solid #ccc;
+    border-radius: 5%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Removed background-color transition */
+    cursor: pointer; /* Cursor pointer to indicate the card is clickable */
+    background-size: cover; /* Make sure the background image covers the card */
+    background-position: center; /* Center the background image */
+    overflow: hidden; /* Hide the overlay overflow */
+}
+
+.card span {
+    color: white; /* Set the text color */
+    font-weight: bold; /* Make the text bold */
+    text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black; /* Text shadow to simulate border */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Adds a hover effect */
+}
+
+/* Overlay effect */
+.card::before {
+    content: ''; /* Pseudo-element must have content */
+    position: absolute; /* Position over the card */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0); /* Initial overlay color (transparent) */
+    transition: background-color 0.2s; /* Smooth transition for the overlay */
+    z-index: 1; /* Position overlay above the background image */
+    border-radius: 8px; /* Match card border radius */
+}
+
+.card.selected::before {
+    background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white overlay */
+}
+
+.card > * {
+    position: relative; /* Ensure text and content are above the overlay */
+    z-index: 2; /* Higher z-index than the overlay */
+}
