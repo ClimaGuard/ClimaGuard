@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/climaguard/static/css/main.f2d93b86.css",
+    "main.js": "/climaguard/static/js/main.46ae7ff8.js",
+    "static/js/453.c97b7dee.chunk.js": "/climaguard/static/js/453.c97b7dee.chunk.js",
+    "static/media/hot-wet.jpeg": "/climaguard/static/media/hot-wet.b2c8a09b5ff62e12d407.jpeg",
+    "static/media/cold-wet.jpeg": "/climaguard/static/media/cold-wet.4d51db9a28cd93c2d1fb.jpeg",
+    "static/media/cold-dry.jpeg": "/climaguard/static/media/cold-dry.a6d5c1343b68fffbdd70.jpeg",
+    "static/media/hot-dry.jpeg": "/climaguard/static/media/hot-dry.dc23fd037c31c2f80bdb.jpeg",
+    "index.html": "/climaguard/index.html",
+    "main.f2d93b86.css.map": "/climaguard/static/css/main.f2d93b86.css.map",
+    "main.46ae7ff8.js.map": "/climaguard/static/js/main.46ae7ff8.js.map",
+    "453.c97b7dee.chunk.js.map": "/climaguard/static/js/453.c97b7dee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2d93b86.css",
+    "static/js/main.46ae7ff8.js"
+  ]
+}
