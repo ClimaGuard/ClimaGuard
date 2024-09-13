@@ -1,12 +1,11 @@
 /* PoolValue.css */
 .pool-value {
-    margin: 20px 0; /* Add some margin for spacing */
     text-align: center; /* Center the text */
     color: #fff; /* White text color */
-    margin-top: 0px;
+    margin: 0;
 }
 
 .pool-value h2 {
-    font-size: 1.0em; /* Increase font size */
+    font-size: 0.5em; /* Increase font size */
     margin: 0; /* Remove default margin */
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserProvider } from 'ethers'; // Import the correct named imports for ethers
+import { BrowserProvider, formatEther } from 'ethers'; // Import necessary functions from ethers
 import './App.css';
 import Cards from './cards/Cards';
 import PurchaseButton from './PurchaseButton';
@@ -12,6 +12,7 @@ function App() {
   const [userAddress, setUserAddress] = useState(null);
   const [contract, setContract] = useState(null);
   const [selectedCards, setSelectedCards] = useState([]);
+  const [ethBalance, setEthBalance] = useState('0.0'); // State to store ETH balance
   const [cardData, setCardData] = useState([
     { id: 1, precipitation: 10, temperature: -10, price: 0.01, quantityOwned: 0 },
     { id: 2, precipitation: 10, temperature: 10, price: 0.01, quantityOwned: 0 },
@@ -27,6 +28,10 @@ function App() {
       const signer = await provider.getSigner();
       const userAddress = await signer.getAddress();
       const contract = getContractInstanceWithProvider(provider); // Initialize contract instance
+
+      // Fetch ETH balance
+      const balance = await provider.getBalance(userAddress);
+      setEthBalance(formatEther(balance)); // Convert balance from Wei to ETH and update state
 
       setProvider(provider);
       setUserAddress(userAddress);
@@ -71,37 +76,37 @@ function App() {
 
   return (
     <div className="App">
-  <header className="App-header">
-    {provider && userAddress ? (
-      <>
-        <DevMenu />
-        <h1 className="season-header">Next season ☀️ Summer</h1>
-        {/* Pass the provider and contract as props */}
-        <PoolValue provider={provider} contract={contract} />
-        {/* Pass provider, contract, and userAddress to Cards component */}
-        <Cards
-          selectedCards={selectedCards}
-          onSelectCard={handleCardSelection}
-          provider={provider}
-          contract={contract}
-          userAddress={userAddress}
-        />
-        {/* Pass the necessary props to PurchaseButton */}
-        <PurchaseButton
-          selectedCards={selectedCards}
-          provider={provider}
-          contract={contract}
-          userAddress={userAddress}
-          updateTokenBalances={updateTokenBalances} // Pass updateTokenBalances to refresh card data
-        />
-      </>
-    ) : (
-      <button onClick={connectWallet} className="purchase-button">
-        Connect Wallet
-      </button>
-    )}
-  </header>
-</div>
+      <header className="App-header">
+        {provider && userAddress ? (
+          <>
+            <DevMenu provider={provider} />
+            <h1 className="season-header">Next season ☀️ Summer</h1>
+            {/* Pass the provider and contract as props */}
+            <PoolValue provider={provider} eth={ethBalance} contract={contract} />
+            {/* Pass provider, contract, and userAddress to Cards component */}
+            <Cards
+              selectedCards={selectedCards}
+              onSelectCard={handleCardSelection}
+              provider={provider}
+              contract={contract}
+              userAddress={userAddress}
+            />
+            {/* Pass the necessary props to PurchaseButton */}
+            <PurchaseButton
+              selectedCards={selectedCards}
+              provider={provider}
+              contract={contract}
+              userAddress={userAddress}
+              updateTokenBalances={updateTokenBalances} // Pass updateTokenBalances to refresh card data
+            />
+          </>
+        ) : (
+          <button onClick={connectWallet} className="purchase-button">
+            Connect Wallet
+          </button>
+        )}
+      </header>
+    </div>
   );
 }
 

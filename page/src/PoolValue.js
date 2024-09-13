@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './PoolValue.css'; // Optional CSS file for styling
 
-const PoolValue = ({ provider, contract }) => {
+const PoolValue = ({ provider, eth, contract }) => {
   const [poolValue, setPoolValue] = useState(0); // State to hold the pool value
 
   // Function to fetch the pool value from the smart contract
@@ -25,7 +25,8 @@ const PoolValue = ({ provider, contract }) => {
 
   return (
     <div className="pool-value">
-      <h2>Pool Value: {poolValue.toFixed(4)} Ξ</h2> {/* Display pool value */}
+      <h2>Wallet balance {eth} Ξ</h2> {/* Display pool value */}
+      <h2>Pool balance {poolValue.toFixed(4)} Ξ</h2>
     </div>
   );
 };
